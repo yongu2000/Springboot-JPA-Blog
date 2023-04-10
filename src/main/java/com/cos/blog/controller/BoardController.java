@@ -1,13 +1,13 @@
-package com.cos.blog.test;
+package com.cos.blog.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class ControllerTest {
+public class BoardController {
 
-    @GetMapping("/test/hello")
-    public String hello() {
+    @GetMapping({"","/"})
+    public String index() {
         return "index";
     }
 }
