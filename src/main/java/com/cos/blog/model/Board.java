@@ -27,6 +27,7 @@ public class Board {
     private String title;
 
     @Lob // 대용량 데이터
+    @Column(columnDefinition = "LONGTEXT")
     private String content; // summernote 라이브러리
 
     @ColumnDefault("0")

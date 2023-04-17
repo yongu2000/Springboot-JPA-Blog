@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="~{layout/header :: headerFragment}"></div>
+
+<div class="container">
+    <button class="btn btn-secondary" th:onclick="history.back()" th:text="돌아가기"/>
+    <span th:if="${board.user.id} == ${#authentication.principal.user.id}">
+        <a th:href="@{/board/{id}/updateForm (id=${board.id})}" class="btn btn-warning" th:text="수정"/>
+        <button id="btn-delete" class="btn btn-danger" th:text="삭제"/>
+    </span>
+    <br/>
+    <br/>
+
+    <div>
+        글 번호 : <span id="id" th:text="${board.id}"></span>
+        작성자 : <span id="username" th:text="${board.user.username}"></span>
+    </div>
+    <br/>
+    <div>
+        <h3 id="title" th:text="${board.title}"></h3>
+    </div>
+    <hr/>
+    <div>
+        <div id="content" th:utext="${board.content}"></div>
+    </div>
+    <hr/>
+
+
+</div>
+
+
+<script src="/js/board.js"></script>
+
+<div th:replace="~{layout/footer :: footerFragment}"></div>
+
+
+</body>
+</html>
+
+
