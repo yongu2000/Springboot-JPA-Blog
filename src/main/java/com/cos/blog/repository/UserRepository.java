@@ -3,8 +3,10 @@ package com.cos.blog.repository;
 import com.cos.blog.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<User, Integer> {
+import java.util.Optional;
 
+public interface UserRepository extends JpaRepository<User, Integer> {
+    Optional<User> findUserByUsername(String username);
 }
 
 // JPA 네이밍 전략
